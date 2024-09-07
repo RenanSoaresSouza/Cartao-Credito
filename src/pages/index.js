@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
+import Form from './components/formulario';
 
 export default function Home() {
   return (
@@ -19,8 +20,8 @@ export default function Home() {
       <div className="bg-gray-300 rounded-lg w-80 h-48 ml-20 mt-8 lg:absolute lg:top-64 lg:left-32 lg:shadow-2xl flex flex-col items-center" ><div className="w-full h-8 bg-gray-800 mt-4"></div><div className="w-3/4 h-8 bg-gray-400 mt-5 rounded-lg text-white font-bold flex justify-end items-center"><span className="mr-3">000</span></div></div>
       </div>
       <div className="bg-white w-full h-full border">
-        <form>
-            
+        <form className="h-full">
+          <Form />
         </form>
       </div>
       </div>
