@@ -1,7 +1,7 @@
 import { Result } from "postcss";
 import { useState } from "react";
 
-function Form({nome,setNome,cart,setCart,showcart,dia,setDia,mes,setMes,cod,setCod}){
+function Form({nome,setNome,cart,setCart,showcart,dia,setDia,mes,setMes,cod,setCod,verify,setVerify}){
     const [invalido,setInvalido] = useState(false);
     function limit(length,variable,setVariable,isnum_cart,pos){
 
@@ -46,8 +46,8 @@ function Form({nome,setNome,cart,setCart,showcart,dia,setDia,mes,setMes,cod,setC
     }
       
     return (
-        <div className="text-black  flex flex-col lg:items-end items-center lg:justify-center w-full h-full">
-            <div className=" lg:w-6/12 h-full items-center flex">
+        <div className="text-black   flex flex-col lg:items-end items-center   w-full h-full">
+            <div className=" lg:w-6/12 h-full lg:items-center  flex">
                 <div className=" w-fit  lg:mt-0 ">
                     <div className="flex flex-col">
                         <label className="font-semibold text-purple-950">NOME:</label>
@@ -56,7 +56,7 @@ function Form({nome,setNome,cart,setCart,showcart,dia,setDia,mes,setMes,cod,setC
                     </div>
                     <div className="flex flex-col">
                         <label  className="mt-5 font-semibold text-purple-950">NÚMERO DO CARTÃO:</label>
-                        <input required={invalido[1]}  type="number" placeholder="ex: 9384 6243 7245 5355" maxLength={19} value={cart}  onChange={(e) => limit(16,e.target.value,setCart,true,1)}   className="peer pl-2 p-1 transition-all duration-100 ease-in-out outline-none w-80 rounded-md invalid:border-red-500 focus:border-purple-900 focus:invalid:focus:border-red-500 border border-gray-300" />
+                        <input required={invalido[1]}  type="number" placeholder="ex: 9384 6243 7245 5355" maxLength={19} min={1} value={cart}  onChange={(e) => limit(16,e.target.value,setCart,true,1)}   className="peer pl-2 p-1 transition-all duration-100 ease-in-out outline-none w-80 rounded-md invalid:border-red-500 focus:border-purple-900 focus:invalid:focus:border-red-500 border border-gray-300" />
                         <p className=" h-0 invisible peer-invalid:visible text-red-500 peer-invalid:h-auto">{ invalido[1] == true ?('Não pode ser Vazio'):('Campo Inválido')}</p>
                         
                     </div>
@@ -79,6 +79,7 @@ function Form({nome,setNome,cart,setCart,showcart,dia,setDia,mes,setMes,cod,setC
                         </div>
                     </div>
                     <div className="flex justify-center my-4"><button onClick={button} className=" w-full bg-purple-950 text-white font-bold p-2 rounded-md">Confirmar</button></div>
+                    <div className={verify}><div className="text-sm text-nowrap overflow-hidden">Tamanho de Cartão/Codígo são inválidos</div><button className="text-nowrap overflow-hidden" type="button" onClick={() => setVerify("bg-white transition-all invisible duration-300 ease-in-out absolute top-1 right-1 m-8 w-0 p-5 border-t-4 shadow-md lg:shadow-gray-300 shadow-gray-800 border-red-500 rounded-sm flex flex-row justify-between")}>X</button></div>
                     </div>
                 </div>
         </div>
