@@ -2,7 +2,7 @@ import { useState } from "react";
 function Finalizado({icon,style}){
 
     return(
-        <div className='bg-white h-full lg:justify-end justify-center flex md:items-start items-center '>
+        <div className='bg-white h-full lg:justify-end justify-center flex items-center '>
             <div className="w-fit h-fit  lg:w-6/12   flex justify-start">
                 <div className="w-fit  bg-white">
                     <section className={style}>
